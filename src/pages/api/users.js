@@ -10,7 +10,9 @@ export default async function handler(req, res) {
   const client = await pool.connect();
 
   try {
-    const response = await client.query("SELECT version()");
+    const response = await client.query(
+      "INSERT INTO users (ID, email, name, password, currency_type) VALUES ('2323', 'gggg@gmail.com', 'Dorj', 'Dorj33', 'USD')"
+    );
 
     console.log(response.rows[0]);
 
