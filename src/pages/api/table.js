@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await client.query(
-      "CREATE TABLE users (ID int NOT NULL, email VARCHAR(50) UNIQUE NOT NULL, name VARCHAR(50) NOT NULL, password TEXt, avatar_img varchar(255), createdAt TIMESTAMP, updatedAt TIMESTAMP , currency_type TEXT DEFAULT 'MNT');"
+      "CREATE TABLE transaction (ID int, user_id INT, name TEXT, amount REAL NOT NULL, transaction_type ENUM('INC','EXP'), description TEXT, createdAt TIMESTAMP, updatedAt TIMESTAMP , category_id int);"
     );
 
     console.log(response.rows[0]);
@@ -27,3 +27,4 @@ export default async function handler(req, res) {
 // "UPDATE users SET name='Bat', email='dddd33@gmail.com' WHERE ID='2323'"
 // "DELETE FROM users WHERE ID='2323'"
 // "INSERT INTO users (ID, email, name, password, currency_type) VALUES ('2323', 'gggg@gmail.com', 'Dorj', 'Dorj33', 'USD')"
+// "CREATE TABLE users (ID int NOT NULL, email VARCHAR(50) UNIQUE NOT NULL, name VARCHAR(50) NOT NULL, password TEXt, avatar_img varchar(255), createdAt TIMESTAMP, updatedAt TIMESTAMP , currency_type TEXT DEFAULT 'MNT');";
