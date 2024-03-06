@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await client.query(
-      "CREATE TABLE transaction (ID int, user_id INT, name TEXT, amount REAL NOT NULL, transaction_type ENUM('INC','EXP'), description TEXT, createdAt TIMESTAMP, updatedAt TIMESTAMP , category_id int);"
+      "CREATE TABLE transaction (ID int, user_id INT, name TEXT, amount REAL NOT NULL, transaction_type VARCHAR, description TEXT, createdAt TIMESTAMP, updatedAt TIMESTAMP , category_id int);"
     );
 
     console.log(response.rows[0]);
